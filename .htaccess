@@ -1,0 +1,3 @@
+# Dronecraft Root - minimal index directive
+DirectoryIndex index.html
+Options +Indexes
