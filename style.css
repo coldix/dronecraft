@@ -1,0 +1,351 @@
+/*
+  Project:     Drone Craft ~ dronecraft.au
+  Author:      Colin Dixon BSc, DipEd, Cert IV TAE
+  Contact:     crdixon@gmail.com
+  Timestamp:   27/10/2025 12:21 PM AEDT (Mallacoota)
+  Version:     25.10.002
+  File Name:   style.css
+  Description: Reformatted footer to single-line layout.
+*/
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  height: 100%;
+  /* OzeGlass Standard: Use system fonts, with Poppins as a fallback */
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Helvetica Neue", "Poppins", sans-serif;
+
+  /* Relative paths to work on local and server */
+  background: url("images/betka-clouds.jpg") no-repeat center center fixed;
+  background: url("images/betka-clouds.webp") no-repeat center center fixed;
+
+  background-size: cover;
+  color: #fff;
+  transition: background-color 0.5s ease, color 0.5s ease;
+
+  /* Fix for 100vw footer layout */
+  width: 100%;
+  overflow-x: hidden;
+}
+
+body.dark {
+  background-color: #1a1a1a;
+}
+
+body.light {
+  background-color: #f5f5f5;
+  color: #333;
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.6);
+  z-index: 0;
+  pointer-events: none;
+  transition: background 0.5s ease;
+}
+
+body.light .overlay {
+  background: rgba(255, 255, 255, 0.4);
+}
+
+.toggle-theme {
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  z-index: 3;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  color: #fff;
+  padding: 10px 20px;
+  border-radius: 25px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  font-size: 0.9rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.3s ease;
+}
+
+body.light .toggle-theme {
+  background: rgba(0, 0, 0, 0.1);
+  color: #333;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+.toggle-theme:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: scale(1.05);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+body.light .toggle-theme:hover {
+  background: rgba(0, 0, 0, 0.2);
+}
+
+header,
+main {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  padding: 2rem 1rem;
+}
+
+.header-flex {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.header-flex .logo {
+  max-width: 300px;
+  width: 80%;
+  height: auto;
+  z-index: 2;
+  border-radius: 10px;
+  transition: transform 0.3s ease;
+}
+
+.header-flex img:hover {
+  transform: scale(1.02);
+}
+
+@media (min-width: 768px) {
+  .header-flex {
+    flex-direction: row;
+    justify-content: center;
+  }
+
+  .header-flex .logo {
+    max-width: 320px;
+  }
+}
+
+.portrait-container {
+  position: relative;
+  max-width: 700px;
+  margin: 1.5rem auto;
+}
+
+.portrait {
+  max-width: 140px;
+  width: 40%;
+  height: auto;
+  position: absolute;
+  top: -140px;
+  left: 0;
+  z-index: 1;
+  border-radius: 50%;
+  transition: transform 0.3s ease;
+}
+
+@media (min-width: 768px) {
+  .portrait {
+    max-width: 160px;
+    top: -160px;
+    left: -20px;
+  }
+}
+
+main p {
+  max-width: 700px;
+  margin: 1.5rem auto;
+  font-size: 1.15rem;
+  line-height: 1.7;
+  font-weight: 300;
+  background: rgba(0, 0, 0, 0.5);
+  padding: 1rem;
+  border-radius: 10px;
+  position: relative;
+  z-index: 2;
+}
+
+body.light main p {
+  background: rgba(255, 255, 255, 0.7);
+  color: #333;
+}
+
+.links {
+  margin-top: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.links a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: 90%;
+  max-width: 450px;
+  padding: 16px 24px;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 25px;
+  text-decoration: none;
+  color: #fff;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+body.light .links a {
+  background: rgba(0, 0, 0, 0.1);
+  color: #333;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+.links a:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: scale(1.03);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+body.light .links a:hover {
+  background: rgba(0, 0, 0, 0.2);
+}
+
+.links a.highlight {
+  background: rgba(0, 132, 255, 0.2);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(0, 132, 255, 0.4);
+}
+
+body.light .links a.highlight {
+  background: rgba(0, 132, 255, 0.3);
+  color: #fff;
+}
+
+.links a.highlight:hover {
+  background: rgba(0, 132, 255, 0.4);
+}
+
+.kuula-wrapper,
+.video-wrapper {
+  margin: 3rem auto;
+  max-width: 1000px;
+  width: 100%;
+  position: relative;
+  z-index: 2;
+  border-radius: 25px;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  padding: 10px;
+}
+
+body.light .kuula-wrapper,
+body.light .video-wrapper {
+  background: rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+.video-caption {
+  font-size: 0.9rem;
+  color: #ccc;
+  text-align: center;
+  margin-top: 0.5rem;
+}
+
+body.light .video-caption {
+  color: #666;
+}
+
+/*
+  OzeGlass Standard: Footer Layout
+*/
+footer {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  padding: 2rem 1rem;
+  width: 100vw; /* Spans entire viewport width */
+  margin-top: 3rem;
+  color: #ccc;
+  font-size: 0.9rem;
+}
+
+.footer-content {
+  /* This centers the content within the 100vw footer */
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+body.light footer {
+  color: #666;
+}
+
+footer a {
+  color: #fff;
+  text-decoration: none;
+}
+
+body.light footer a {
+  color: #0066cc;
+}
+
+footer a:hover {
+  text-decoration: underline;
+}
+
+body.light footer a:hover {
+  color: #003366;
+}
+
+/* Styles for new dynamic footer content */
+.footer-info {
+  margin-top: 1rem;
+  font-size: 0.85rem;
+  color: #aaa;
+  white-space: nowrap; /* Tries to keep it on one line */
+}
+
+body.light .footer-info {
+  color: #777;
+}
+
+/* Styles for the new oze.au link */
+.oze-link {
+  display: block;
+  margin-top: 4px;
+  color: #ccc;
+}
+
+body.light .oze-link {
+  color: #666;
+}
+
+footer .oze-link:hover {
+  color: #fff;
+}
+
+body.light footer .oze-link:hover {
+  color: #003366;
+}
+
+/* Hide the file version info on mobile to keep footer clean */
+@media (max-width: 767px) {
+  .file-info {
+    display: none; /* Hides the Ver: ... | ... part */
+  }
+  .footer-info {
+    white-space: normal; /* Allows text to wrap on mobile */
+  }
+}
