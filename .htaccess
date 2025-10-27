@@ -1,16 +1,47 @@
-# ===========================
-# DroneCraft.au Root Config 27 Oct 2026
-# ===========================
+# ==========================================
 
-# Ensure index.html is served
+# Project: DroneCraft ~ dronecraft.au
+
+# Author: Colin Dixon BSc, DipEd, Cert IV TAE
+
+# Contact: crdixon@gmail.com
+
+# Timestamp: 27/10/2025 02:35 PM AEDT (Mallacoota)
+
+# Version: 25.10.27
+
+# File Name: .htaccess
+
+# Description: Root configuration for DroneCraft.au (OzeGlass V1-10-02)
+
+# ==========================================
+
+# --- Directory Index ---
+
 DirectoryIndex index.html
+Options +Indexes +FollowSymLinks
+AllowOverride All
 
-# Allow access to static assets
-<FilesMatch "\.(html|css|js|jpg|jpeg|png|gif|ico|webp|svg|xml|txt|json)$">
-    Require all granted
+# --- Access Control ---
+
+<IfModule mod_authz_core.c>
+  Require all granted
+</IfModule>
+
+# --- MIME & Static File Handling ---
+
+<FilesMatch "\.(html|css|js|jpg|jpeg|png|gif|ico|webp|svg|xml|txt|json|mp4|webm|ogg)$">
+Require all granted
 </FilesMatch>
 
-# Enable caching for speed
+# --- Compression (LiteSpeed / Apache) ---
+
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html text/plain text/xml text/css application/javascript application/json image/svg+xml
+</IfModule>
+
+# --- Browser Caching ---
+
 <IfModule mod_expires.c>
   ExpiresActive On
   ExpiresByType text/html "access plus 1 hour"
@@ -22,9 +53,22 @@ DirectoryIndex index.html
   ExpiresByType image/svg+xml "access plus 1 month"
 </IfModule>
 
-# Security headers
+# --- Security Headers ---
+
 <IfModule mod_headers.c>
   Header set X-Content-Type-Options "nosniff"
   Header set X-Frame-Options "SAMEORIGIN"
   Header set Referrer-Policy "strict-origin-when-cross-origin"
+  Header set Permissions-Policy "geolocation=(), microphone=(), camera=()"
 </IfModule>
+
+# --- Redirect to HTTPS (if not using Hostinger’s global redirect) ---
+
+RewriteEngine On
+RewriteCond %{HTTPS} off
+RewriteRule ^(.\*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+# --- Canonical Redirect (remove www) ---
+
+RewriteCond %{HTTP_HOST} ^www\.dronecraft\.au [NC]
+RewriteRule ^(.\*)$ https://dronecraft.au/$1 [L,R=301]
