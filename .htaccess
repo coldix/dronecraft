@@ -1,3 +1,30 @@
-# Dronecraft Root - minimal index directive
+# ===========================
+# DroneCraft.au Root Config 27 Oct 2026
+# ===========================
+
+# Ensure index.html is served
 DirectoryIndex index.html
-Options +Indexes
+
+# Allow access to static assets
+<FilesMatch "\.(html|css|js|jpg|jpeg|png|gif|ico|webp|svg|xml|txt|json)$">
+    Require all granted
+</FilesMatch>
+
+# Enable caching for speed
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresByType text/html "access plus 1 hour"
+  ExpiresByType text/css "access plus 1 week"
+  ExpiresByType application/javascript "access plus 1 week"
+  ExpiresByType image/webp "access plus 1 month"
+  ExpiresByType image/jpeg "access plus 1 month"
+  ExpiresByType image/png "access plus 1 month"
+  ExpiresByType image/svg+xml "access plus 1 month"
+</IfModule>
+
+# Security headers
+<IfModule mod_headers.c>
+  Header set X-Content-Type-Options "nosniff"
+  Header set X-Frame-Options "SAMEORIGIN"
+  Header set Referrer-Policy "strict-origin-when-cross-origin"
+</IfModule>
