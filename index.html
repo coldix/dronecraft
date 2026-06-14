@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="author" content="Colin Dixon BSc, DipEd, Cert IV TAE" />
-    <meta name="version" content="26.06.004" />
+    <meta name="version" content="26.06.009" />
     <meta name="timestamp" content="14/06/2026 12:52 PM AEST (Mallacoota)" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
@@ -89,10 +89,10 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
     />
-    <link rel="stylesheet" href="style.css?v=26.06.004" />
+    <link rel="stylesheet" href="style.css?v=26.06.009" />
   </head>
 
-  <body>
+  <body class="dark">
     <div class="site-shell">
       <header class="topbar" aria-label="Site header">
         <a class="brand" href="#top" aria-label="Drone Craft home">
@@ -106,11 +106,11 @@
           <a href="#video">Video</a>
           <a href="#panorama">360</a>
           <a href="#connect">Connect</a>
+          <button class="theme-toggle" type="button" aria-label="Toggle dark and light theme" data-theme-toggle>
+            <i class="fa-solid fa-moon" aria-hidden="true"></i>
+            <span>Light Theme</span>
+          </button>
         </nav>
-        <button class="sound-toggle" type="button" aria-label="Toggle ambience" data-ambience>
-          <i class="fa-solid fa-wind" aria-hidden="true"></i>
-          <span>Ice Mode</span>
-        </button>
       </header>
 
       <main id="top">
@@ -186,7 +186,7 @@
             </p>
           </div>
           <div class="portrait-strip reveal">
-            <picture>
+            <picture class="ice-frame portrait-frame">
               <source srcset="images/Colin-Pebbly1-2k.webp" type="image/webp" />
               <img src="images/Colin-Pebbly1-2k.png" alt="Colin Dixon at Pebbly Beach" />
             </picture>
@@ -202,7 +202,7 @@
             <p class="eyebrow">Featured scenes</p>
             <h2 id="work-title">Mallacoota from above</h2>
           </div>
-          <article class="scene-card reveal">
+          <article class="scene-card ice-frame reveal">
             <picture>
               <source srcset="images/Sunrise Coota.webp" type="image/webp" />
               <img src="images/Sunrise Coota.jpg" alt="Mallacoota sunrise aerial panorama" />
@@ -212,7 +212,7 @@
               <p>Wide coastal light with room for print, web, and video treatments.</p>
             </div>
           </article>
-          <article class="scene-card reveal">
+          <article class="scene-card ice-frame reveal">
             <picture>
               <source srcset="images/betka-clouds.webp" type="image/webp" />
               <img src="images/betka-clouds.jpg" alt="Betka clouds and coastline aerial view" />
@@ -229,7 +229,7 @@
             <p class="eyebrow">Cinematic reel</p>
             <h2 id="video-title">Mallacoota in motion</h2>
           </div>
-          <div class="media-frame ice-glass reveal">
+          <div class="media-frame ice-frame reveal">
             <iframe
               src="https://www.youtube.com/embed/hMtv0z8pSFc"
               title="Cinematic drone video of Mallacoota"
@@ -246,7 +246,7 @@
             <p class="eyebrow">Immersive 360</p>
             <h2 id="panorama-title">Step inside the landscape</h2>
           </div>
-          <div class="media-frame ice-glass reveal">
+          <div class="media-frame ice-frame reveal">
             <iframe
               allow="xr-spatial-tracking; gyroscope; accelerometer"
               allowfullscreen
@@ -313,6 +313,6 @@
       </footer>
     </div>
 
-    <script src="script.js?v=26.06.004" defer></script>
+    <script src="script.js?v=26.06.009" defer></script>
   </body>
 </html>

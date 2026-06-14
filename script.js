@@ -1,5 +1,5 @@
 const revealItems = document.querySelectorAll(".reveal");
-const ambienceButton = document.querySelector("[data-ambience]");
+const themeButton = document.querySelector("[data-theme-toggle]");
 
 const observer = new IntersectionObserver(
   (entries) => {
@@ -14,9 +14,44 @@ const observer = new IntersectionObserver(
 
 revealItems.forEach((item) => observer.observe(item));
 
-if (ambienceButton) {
-  ambienceButton.addEventListener("click", () => {
-    document.body.classList.toggle("ice-active");
+function applyTheme(theme) {
+  const nextTheme = theme === "light" ? "light" : "dark";
+  document.body.classList.toggle("light", nextTheme === "light");
+  document.body.classList.toggle("dark", nextTheme === "dark");
+
+  if (!themeButton) {
+    return;
+  }
+
+  const icon = themeButton.querySelector("i");
+  const label = themeButton.querySelector("span");
+  const isLight = nextTheme === "light";
+
+  themeButton.setAttribute("aria-label", `Switch to ${isLight ? "dark" : "light"} theme`);
+  if (label) {
+    label.textContent = isLight ? "Dark Theme" : "Light Theme";
+  }
+  if (icon) {
+    icon.classList.toggle("fa-sun", isLight);
+    icon.classList.toggle("fa-moon", !isLight);
+  }
+}
+
+try {
+  applyTheme(localStorage.getItem("theme") || "dark");
+} catch {
+  applyTheme("dark");
+}
+
+if (themeButton) {
+  themeButton.addEventListener("click", () => {
+    const nextTheme = document.body.classList.contains("light") ? "dark" : "light";
+    applyTheme(nextTheme);
+    try {
+      localStorage.setItem("theme", nextTheme);
+    } catch {
+      // Ignore private browsing storage failures.
+    }
   });
 }
 
