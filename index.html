@@ -2,72 +2,44 @@
 <html lang="en-AU">
   <head>
     <meta charset="UTF-8" />
-
     <meta name="author" content="Colin Dixon BSc, DipEd, Cert IV TAE" />
-    <meta name="version" content="25.10.005" />
-    <meta name="timestamp" content="27/10/2025 01:22 PM AEDT (Mallacoota)" />
-    <link rel="manifest" href="/manifest.json" />
-    <link
-      rel="apple-touch-icon"
-      sizes="180x180"
-      href="images/apple-touch-icon.png"
-    />
-    <link
-      rel="icon"
-      type="image/png"
-      sizes="32x32"
-      href="images/favicon-32x32.png"
-    />
-    <link
-      rel="icon"
-      type="image/png"
-      sizes="16x16"
-      href="images/favicon-16x16.png"
-    />
-    <link rel="icon" href="favicon.ico" type="image/x-icon" />
-
+    <meta name="version" content="26.06.003" />
+    <meta name="timestamp" content="14/06/2026 12:52 PM AEST (Mallacoota)" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>
-      Drone Craft by Colin Dixon | Australian Aerial Art & Digital Strategy
-    </title>
+
+    <title>Drone Craft | Mallacoota Aerial Art by Colin Dixon</title>
     <meta
       name="description"
-      content="Drone Craft is the creative hub of Colin Dixon – discover premium drone photography, 360° panoramas, and digital strategy from Mallacoota, Victoria."
+      content="Drone Craft is Colin Dixon's Mallacoota aerial media studio, featuring cinematic drone photography, video, 360 panoramas, and digital storytelling."
     />
     <meta
       name="keywords"
-      content="Drone Craft, Colin Dixon, Mallacoota, Drone Photography, Insta360, Mavic 4 Pro, Victoria, coota.au, aerial art, digital media, AI music videos"
+      content="Drone Craft, Colin Dixon, Mallacoota, DJI Mavic 4 Pro, drone photography, aerial art, 360 panoramas, Victoria"
     />
 
-    <meta
-      property="og:title"
-      content="Drone Craft by Colin Dixon | Aerial Art &Digital Strategy"
-    />
+    <link rel="manifest" href="/manifest.json" />
+    <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png" />
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon" />
+
+    <meta property="og:title" content="Drone Craft | Mallacoota Aerial Art" />
     <meta
       property="og:description"
-      content="Explore stunning drone visuals, 360° media, and Colin Dixon’s creative tech portfolio."
+      content="Cinematic drone photography, video, 360 panoramas, and digital storytelling from Mallacoota, Victoria."
     />
-    <meta
-      property="og:image"
-      content="https://dronecraft.au/images/betka-clouds.jpg"
-    />
+    <meta property="og:image" content="https://dronecraft.au/images/betka-clouds.jpg" />
     <meta property="og:url" content="https://dronecraft.au/" />
     <meta property="og:type" content="website" />
 
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:url" content="https://dronecraft.au/" />
-    <meta
-      name="twitter:title"
-      content="Drone Craft by Colin Dixon | Aerial Art & Digital Strategy"
-    />
+    <meta name="twitter:title" content="Drone Craft | Mallacoota Aerial Art" />
     <meta
       name="twitter:description"
-      content="Explore stunning drone visuals, 360° media, and Colin Dixon’s creative tech portfolio."
+      content="Cinematic drone photography, video, 360 panoramas, and digital storytelling from Mallacoota."
     />
-    <meta
-      name="twitter:image"
-      content="https://dronecraft.au/images/betka-clouds.jpg"
-    />
+    <meta name="twitter:image" content="https://dronecraft.au/images/betka-clouds.jpg" />
 
     <script type="application/ld+json">
       {
@@ -75,7 +47,7 @@
         "@type": "Person",
         "name": "Colin Dixon",
         "url": "https://dronecraft.au",
-        "jobTitle": "Aerial Artist & Digital Strategist",
+        "jobTitle": "Aerial Artist and Digital Strategist",
         "worksFor": {
           "@type": "Organization",
           "name": "Drone Craft"
@@ -96,10 +68,7 @@
       }
     </script>
 
-    <script
-      async
-      src="https://www.googletagmanager.com/gtag/js?id=G-HZEBQGV488"
-    ></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-HZEBQGV488"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag() {
@@ -112,160 +81,238 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link rel="preconnect" href="https://cdnjs.cloudflare.com" />
-
     <link
-      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
       rel="stylesheet"
     />
     <link
-      href="https://cdnjs.cloudflare.com/css2/font-awesome/6.4.0/css/all.min.css"
       rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
     />
-
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="style.css?v=26.06.003" />
   </head>
 
-  <body class="dark">
-    <div class="overlay"></div>
+  <body>
+    <div class="site-shell">
+      <header class="topbar" aria-label="Site header">
+        <a class="brand" href="#top" aria-label="Drone Craft home">
+          <picture>
+            <source srcset="images/dronecraft-logo.webp" type="image/webp" />
+            <img src="images/dronecraft-logo.png" alt="Drone Craft by Colin Dixon" />
+          </picture>
+        </a>
+        <nav class="topnav" aria-label="Primary navigation">
+          <a href="#work">Work</a>
+          <a href="#video">Video</a>
+          <a href="#panorama">360</a>
+          <a href="#connect">Connect</a>
+        </nav>
+        <button class="sound-toggle" type="button" aria-label="Toggle ambience" data-ambience>
+          <i class="fa-solid fa-wind" aria-hidden="true"></i>
+          <span>Ice Mode</span>
+        </button>
+      </header>
 
-    <button
-      class="toggle-theme"
-      onclick="toggleTheme()"
-      aria-label="Toggle light and dark theme"
-    >
-      <i class="fas fa-moon" aria-hidden="true"></i> <span>Light Theme</span>
-    </button>
-
-    <header>
-      <div class="header-flex">
-        <picture>
-          <source srcset="images/dronecraft-logo.webp" type="image/webp" />
-          <source srcset="images/dronecraft-logo.png" type="image/png" />
+      <main id="top">
+        <section class="hero" aria-labelledby="hero-title">
+          <div class="hero-media" aria-hidden="true">
+            <picture>
+              <source srcset="images/betka-clouds.webp" type="image/webp" />
+              <img src="images/betka-clouds.jpg" alt="" />
+            </picture>
+          </div>
+          <div class="aurora"></div>
+          <div class="ice-field" aria-hidden="true">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
           <img
-            src="images/dronecraft-logo.png"
-            alt="Drone Craft Logo"
-            class="logo"
+            class="hero-drone"
+            src="images/mavic-4-pro-cutout.png"
+            alt="Flying DJI Mavic 4 Pro style drone"
           />
-        </picture>
-      </div>
-    </header>
 
-    <main>
-      <div class="portrait-container">
-        <picture>
-          <source srcset="images/Colin-Pebbly1-2k.webp" type="image/webp" />
-          <source srcset="images/Colin-Pebbly1-2k.png" type="image/png" />
-          <img
-            src="images/Colin-Pebbly1-2k.png"
-            alt="Colin Dixon Portrait"
-            class="portrait"
-          />
-        </picture>
-        <p>
-          Welcome to Drone Craft – a creative space where AI and aerial vision
-          meet. Based in Mallacoota, I share cinematic drone imagery,
-          interactive 360° views, and digital storytelling. Join our growing
-          community of enthusiasts and creators.
-        </p>
-      </div>
+          <div class="hero-content is-visible">
+            <p class="eyebrow">Mallacoota aerial art / AI media / 360 worlds</p>
+            <h1 id="hero-title">Drone Craft</h1>
+            <p class="hero-copy">
+              Cinematic coastal flight, digital strategy, and immersive visual stories by
+              Colin Dixon.
+            </p>
+            <div class="hero-actions">
+              <a class="button button-primary" href="https://coota.au/" target="_blank" rel="noopener">
+                <i class="fa-solid fa-camera-retro" aria-hidden="true"></i>
+                View Aerial Work
+              </a>
+              <a
+                class="button button-secondary"
+                href="https://calendly.com/colindixon"
+                target="_blank"
+                rel="noopener"
+              >
+                <i class="fa-solid fa-calendar-check" aria-hidden="true"></i>
+                Schedule a Chat
+              </a>
+            </div>
+          </div>
 
-      <nav class="links" aria-label="Main social and content links">
-        <a href="https://www.facebook.com/groups/dronecraft" target="_blank"
-          ><i class="fab fa-facebook-f" aria-hidden="true"></i> Join the
-          Facebook Group</a
-        >
-        <a href="https://coota.au/" target="_blank"
-          ><i class="fas fa-camera" aria-hidden="true"></i> Drone Photography &
-          Videos</a
-        >
-        <a href="https://www.youtube.com/@mallacoota2020" target="_blank"
-          ><i class="fab fa-youtube" aria-hidden="true"></i> YouTube Channel
-          @mallacoota2020</a
-        >
-        <a href="https://kuula.co/profile/mallacoota" target="_blank"
-          ><i class="fas fa-vr-cardboard" aria-hidden="true"></i> 360° Panoramas
-          (Drone & Insta360)</a
-        >
-        <a href="https://www.instagram.com/coldix/" target="_blank"
-          ><i class="fab fa-instagram" aria-hidden="true"></i> Instagram</a
-        >
-        <a href="https://x.com/colindixon" target="_blank"
-          ><i class="fab fa-x-twitter" aria-hidden="true"></i> Follow on X</a
-        >
-        <a href="https://oze.unleashed.substack.com/" target="_blank"
-          ><i class="fas fa-newspaper" aria-hidden="true"></i> OzeUnleashed
-          Substack</a
-        >
-        <a href="https://discord.gg/NvmM3ny2TV" target="_blank"
-          ><i class="fab fa-discord" aria-hidden="true"></i> Join Our Discord</a
-        >
-        <a
-          href="https://calendly.com/colindixon"
-          target="_blank"
-          class="highlight"
-          ><i class="fas fa-calendar-check" aria-hidden="true"></i> Schedule a
-          Chat</a
-        >
-      </nav>
-    </main>
+          <div class="hero-panel ice-glass is-visible" aria-label="Drone Craft highlights">
+            <div>
+              <span>Platform</span>
+              <strong>DJI Mavic 4 Pro</strong>
+            </div>
+            <div>
+              <span>Base</span>
+              <strong>Mallacoota, VIC</strong>
+            </div>
+            <div>
+              <span>Media</span>
+              <strong>Drone / 360 / Video</strong>
+            </div>
+          </div>
+        </section>
 
-    <div class="video-wrapper">
-      <iframe
-        width="100%"
-        height="640"
-        src="https://www.youtube.com/embed/hMtv0z8pSFc"
-        title="Cinematic drone video of Mallacoota"
-        frameborder="0"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-        referrerpolicy="strict-origin-when-cross-origin"
-        allowfullscreen
-        loading="lazy"
-      >
-      </iframe>
-      <p class="video-caption">
-        Explore Mallacoota's stunning landscapes through this cinematic drone
-        video.
-      </p>
-    </div>
+        <section class="intro section-band">
+          <div class="intro-copy reveal">
+            <p class="eyebrow">Field work meets digital craft</p>
+            <h2>Built for the coast, the sky, and the screen.</h2>
+            <p>
+              Drone Craft brings Mallacoota's beaches, lakes, cloud forms, and wilderness
+              edges into polished aerial media. The new glass interface keeps the site
+              light, fast, and ready for Hostinger static hosting.
+            </p>
+          </div>
+          <div class="portrait-strip reveal">
+            <picture>
+              <source srcset="images/Colin-Pebbly1-2k.webp" type="image/webp" />
+              <img src="images/Colin-Pebbly1-2k.png" alt="Colin Dixon at Pebbly Beach" />
+            </picture>
+            <div>
+              <span>Colin Dixon</span>
+              <strong>Aerial artist and digital strategist</strong>
+            </div>
+          </div>
+        </section>
 
-    <div class="kuula-wrapper">
-      <iframe
-        width="100%"
-        height="640"
-        frameborder="0"
-        allow="xr-spatial-tracking; gyroscope; accelerometer"
-        allowfullscreen
-        scrolling="no"
-        src="https://kuula.co/share/hnh4w?logo=1&info=1&fs=1&vr=1&zoom=1&sd=1&autorotate=0.51&thumbs=1"
-        title="Interactive 360-degree panorama of Mallacoota"
-        loading="lazy"
-      ></iframe>
-    </div>
+        <section class="work-grid section-band" id="work" aria-labelledby="work-title">
+          <div class="section-heading reveal">
+            <p class="eyebrow">Featured scenes</p>
+            <h2 id="work-title">Mallacoota from above</h2>
+          </div>
+          <article class="scene-card reveal">
+            <picture>
+              <source srcset="images/Sunrise Coota.webp" type="image/webp" />
+              <img src="images/Sunrise Coota.jpg" alt="Mallacoota sunrise aerial panorama" />
+            </picture>
+            <div>
+              <span>Sunrise Coota</span>
+              <p>Wide coastal light with room for print, web, and video treatments.</p>
+            </div>
+          </article>
+          <article class="scene-card reveal">
+            <picture>
+              <source srcset="images/betka-clouds.webp" type="image/webp" />
+              <img src="images/betka-clouds.jpg" alt="Betka clouds and coastline aerial view" />
+            </picture>
+            <div>
+              <span>Betka Clouds</span>
+              <p>High-drama cloud layers, coastline geometry, and wilderness scale.</p>
+            </div>
+          </article>
+        </section>
 
-    <footer>
-      <div class="footer-content">
-        <p>
-          Contact: <a href="mailto:col@dixon.au">col@dixon.au</a> |
-          <a href="tel:0419415000">0419 415 000</a> |
-          <a href="https://www.linkedin.com/in/colindixon/" target="_blank"
-            >LinkedIn</a
-          >
-        </p>
+        <section class="video-section section-band" id="video" aria-labelledby="video-title">
+          <div class="section-heading reveal">
+            <p class="eyebrow">Cinematic reel</p>
+            <h2 id="video-title">Mallacoota in motion</h2>
+          </div>
+          <div class="media-frame ice-glass reveal">
+            <iframe
+              src="https://www.youtube.com/embed/hMtv0z8pSFc"
+              title="Cinematic drone video of Mallacoota"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              referrerpolicy="strict-origin-when-cross-origin"
+              allowfullscreen
+              loading="lazy"
+            ></iframe>
+          </div>
+        </section>
 
-        <div class="footer-info">
-          <span>
-            <span id="copyright-year"></span> Colin Dixon | All Rights Reserved
-          </span>
-          <span class="file-info">
-            ~ Ver: <span id="html-version"></span> |
-            <span id="html-timestamp"></span>
-          </span>
-          <br />
-          <a href="https://oze.au" target="_blank" class="oze-link">oze.au</a>
+        <section class="panorama-section section-band" id="panorama" aria-labelledby="panorama-title">
+          <div class="section-heading reveal">
+            <p class="eyebrow">Immersive 360</p>
+            <h2 id="panorama-title">Step inside the landscape</h2>
+          </div>
+          <div class="media-frame ice-glass reveal">
+            <iframe
+              allow="xr-spatial-tracking; gyroscope; accelerometer"
+              allowfullscreen
+              scrolling="no"
+              src="https://kuula.co/share/hnh4w?logo=1&info=1&fs=1&vr=1&zoom=1&sd=1&autorotate=0.51&thumbs=1"
+              title="Interactive 360-degree panorama of Mallacoota"
+              loading="lazy"
+            ></iframe>
+          </div>
+        </section>
+
+        <section class="connect section-band" id="connect" aria-labelledby="connect-title">
+          <div class="section-heading reveal">
+            <p class="eyebrow">Connect</p>
+            <h2 id="connect-title">Follow the next flight</h2>
+          </div>
+          <div class="link-grid reveal" aria-label="Drone Craft links">
+            <a href="https://www.facebook.com/groups/dronecraft" target="_blank" rel="noopener">
+              <i class="fa-brands fa-facebook-f" aria-hidden="true"></i>
+              <span>Facebook Group</span>
+            </a>
+            <a href="https://www.youtube.com/@mallacoota2020" target="_blank" rel="noopener">
+              <i class="fa-brands fa-youtube" aria-hidden="true"></i>
+              <span>YouTube</span>
+            </a>
+            <a href="https://kuula.co/profile/mallacoota" target="_blank" rel="noopener">
+              <i class="fa-solid fa-vr-cardboard" aria-hidden="true"></i>
+              <span>360 Panoramas</span>
+            </a>
+            <a href="https://www.instagram.com/coldix/" target="_blank" rel="noopener">
+              <i class="fa-brands fa-instagram" aria-hidden="true"></i>
+              <span>Instagram</span>
+            </a>
+            <a href="https://x.com/colindixon" target="_blank" rel="noopener">
+              <i class="fa-brands fa-x-twitter" aria-hidden="true"></i>
+              <span>X</span>
+            </a>
+            <a href="https://oze.unleashed.substack.com/" target="_blank" rel="noopener">
+              <i class="fa-solid fa-newspaper" aria-hidden="true"></i>
+              <span>Substack</span>
+            </a>
+            <a href="https://discord.gg/NvmM3ny2TV" target="_blank" rel="noopener">
+              <i class="fa-brands fa-discord" aria-hidden="true"></i>
+              <span>Discord</span>
+            </a>
+            <a href="mailto:col@dixon.au">
+              <i class="fa-solid fa-envelope" aria-hidden="true"></i>
+              <span>Email Colin</span>
+            </a>
+          </div>
+        </section>
+      </main>
+
+      <footer class="site-footer">
+        <div>
+          <span id="copyright-year"></span> Colin Dixon. All rights reserved.
         </div>
-      </div>
-    </footer>
+        <div class="footer-links">
+          <a href="tel:0419415000">0419 415 000</a>
+          <a href="https://www.linkedin.com/in/colindixon/" target="_blank" rel="noopener">LinkedIn</a>
+          <a href="https://oze.au" target="_blank" rel="noopener">oze.au</a>
+        </div>
+        <small>Ver: <span id="html-version"></span> | <span id="html-timestamp"></span></small>
+      </footer>
+    </div>
 
-    <script src="script.js" defer></script>
+    <script src="script.js?v=26.06.003" defer></script>
   </body>
 </html>
