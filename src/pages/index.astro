@@ -92,7 +92,12 @@
     />
     <link rel="stylesheet" href="/style.css" />
     <link rel="stylesheet" href="/css/adnet.css" />
-  <script is:inline>try{document.documentElement.dataset.theme=localStorage.getItem("theme")||"dark"}catch(e){document.documentElement.dataset.theme="dark"}</script><style is:global>html[data-theme="light"] body{background:#eef4f8}@media(prefers-reduced-motion:reduce){*,*:before,*:after{animation-duration:.01ms!important;transition-duration:.01ms!important;scroll-behavior:auto!important}}</style></head>
+  <script is:inline>try{if(localStorage.getItem("theme")==="light")document.documentElement.classList.add("stored-light")}catch(e){}</script>
+    <style is:global>
+      html.stored-light body.dark {visibility:hidden}
+      @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important;scroll-behavior:auto!important}}
+    </style>
+  </head>
 
   <body class="dark">
     <div class="site-shell">
@@ -120,7 +125,7 @@
           <div class="hero-media" aria-hidden="true">
             <picture>
               <source srcset="/images/betka-clouds.webp" type="image/webp" />
-              <img src="/images/betka-clouds.jpg" alt="" />
+              <img src="/images/betka-clouds.jpg" alt="" fetchpriority="high" />
             </picture>
           </div>
           <div class="aurora"></div>
