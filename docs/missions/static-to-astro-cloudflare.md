@@ -59,7 +59,7 @@ Do not change, drop or invent any of these.
 5. Theme: dark default, light toggle, saved in `localStorage`, no flash on load (inline script in `<head>`).
 6. **Video: YouTube only.** Don't host video files. Use a facade (poster image + play button, load the iframe on click). Use `youtube-nocookie.com`.
 7. Kuula: lazy-load (load when scrolled near, or click to load).
-8. Adnet: keep the slot and `t.js`. Copy `css/adnet.css` as is (it reserves fixed space to avoid layout shift).
+8. Adnet: keep the "Sponsored" row of three 300x250 slots (`data-ad-zone` = `in-content`, `in-content-2`, `in-content-3`) and `t.js`. Copy `css/adnet.css` as is (it reserves fixed space to avoid layout shift).
 9. Fonts and icons: self-host Inter (or a better pairing) and swap Font Awesome CDN for inline SVG icons. Fewer third-party requests.
 10. SEO: canonical `https://dronecraft.au/`, `robots.txt`, `sitemap.xml` (Astro sitemap integration is fine), `manifest.json`, favicons, and a new `public/llms.txt` (short plain-text summary + contact).
 11. Version and timestamp: keep the `<meta name="version">` and `<meta name="timestamp">` pattern, format `YY.MM.NNN` and `DD/MM/YYYY hh:mm AM/PM AEDT (Mallacoota)`. Bump on each release. Show in the footer.
