@@ -1,3 +1,7 @@
+// Load external media only after user interaction or near viewport.
+const ytFrame=document.querySelector('iframe[data-video-id]');
+if(ytFrame){const id=ytFrame.dataset.videoId;const play=document.createElement('button');play.type='button';play.className='media-play';play.textContent='▶ Play Mallacoota aerial video';play.setAttribute('aria-label','Play Mallacoota aerial video');play.style.cssText='display:block;width:100%;aspect-ratio:16/9;background:#0b2432 url(https://i.ytimg.com/vi/'+id+'/hqdefault.jpg) center/cover no-repeat;color:#fff;border:0;font-size:1.3rem;cursor:pointer';ytFrame.replaceWith(play);play.addEventListener('click',()=>{const frame=document.createElement('iframe');frame.src='https://www.youtube-nocookie.com/embed/'+id+'?autoplay=1';frame.title='Cinematic drone video of Mallacoota';frame.allow='autoplay;encrypted-media;picture-in-picture;gyroscope;accelerometer';frame.allowFullscreen=true;play.replaceWith(frame)});}
+const kuulaFrame=document.querySelector('iframe[data-kuula-src]');if(kuulaFrame){const obs=new IntersectionObserver(entries=>{if(entries.some(x=>x.isIntersecting)){kuulaFrame.src=kuulaFrame.dataset.kuulaSrc;obs.disconnect()}},{rootMargin:'350px'});obs.observe(kuulaFrame)}
 const revealItems = document.querySelectorAll(".reveal");
 const themeButton = document.querySelector("[data-theme-toggle]");
 
