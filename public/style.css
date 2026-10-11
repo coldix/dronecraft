@@ -947,3 +947,12 @@ h2 {
 /* OZE network footer credit, matching bellwest's small OZE mark. */
 .site-footer .footer-oze { display: inline-flex; align-items: center; gap: 6px; vertical-align: middle; white-space: nowrap; }
 .site-footer .footer-oze img { display: inline-block; width: 54px; height: 18px; object-fit: contain; }
+
+/* Compact service descriptions complement the image-first portfolio. */
+.services-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(1rem,2vw,2rem);margin:1.2rem 0 1.8rem}
+.services-grid article{padding:clamp(1rem,2vw,1.5rem);border:1px solid var(--stroke);border-radius:var(--radius);background:var(--glass)}
+.services-grid h3{font-size:1.12rem;margin:0 0 .65rem;color:var(--ink)}
+.services-grid p{margin:0;color:var(--muted)}
+.services-section>p{color:var(--muted)}
+.services-section>p a{text-underline-offset:3px;color:var(--cyan)}
+@media(max-width:720px){.services-grid{grid-template-columns:1fr}}
