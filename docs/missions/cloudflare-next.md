@@ -1,6 +1,13 @@
 # Cloudflare Workers deployment sequence
 
-Status: Cloudflare zone is Active according to Colin, but Astro build and Workers deployment remain unverified. PR #1 is draft.
+Status (11 Oct 2026, 15:15 AEDT, Grok Bot): **LIVE on Cloudflare Workers.**
+- Build verified locally and in GitHub Actions. Worker `dronecraft` deployed with wrangler from `astro-migration`.
+- Preview: https://dronecraft.col-ab2.workers.dev
+- `dronecraft.au` attached as Worker custom domain (Hostinger A/AAAA removed). Always Use HTTPS on.
+- `www.dronecraft.au/*` 301 to `https://dronecraft.au/*` via zone Redirect Rule (www = proxied AAAA 100::), query string preserved.
+- Nameservers already Cloudflare (dilbert/jewel); no registrar change needed.
+- Hostinger email removed at Colin's request: MX mx1/mx2.hostinger.com, SPF TXT, autoconfig/autodiscover CNAMEs, ftp A (46.202.196.151). Google site verification TXT kept. dronecraft.au now has no mail; site contact is col@dixon.au.
+- PR #1 still draft. Merge after Colin approves; then set up Workers Builds (or Actions deploy) on `main` so future pushes deploy.
 
 1. Wait for the GitHub Actions **Astro build check** to pass on `astro-migration`. Inspect its downloadable `dronecraft-dist` artefact.
 2. In Cloudflare Workers & Pages, create Worker `dronecraft` connected to GitHub `coldix/dronecraft`. Select branch `astro-migration` for an initial preview where supported, or create a non-production preview deployment. Build: `npm run build`, Node 22, config `wrangler.jsonc`.
