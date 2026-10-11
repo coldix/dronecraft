@@ -20,6 +20,7 @@ revealItems.forEach((item) => observer.observe(item));
 
 function applyTheme(theme) {
   const nextTheme = theme === "light" ? "light" : "dark";
+  document.documentElement.classList.remove("stored-light");
   document.body.classList.toggle("light", nextTheme === "light");
   document.body.classList.toggle("dark", nextTheme === "dark");
 
