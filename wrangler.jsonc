@@ -1,0 +1,10 @@
+{
+  "name": "dronecraft",
+  "compatibility_date": "2026-10-11",
+  "assets": { "directory": "./dist" },
+  "workers_dev": true,
+  "preview_urls": true,
+  "routes": [
+    { "pattern": "dronecraft.au", "custom_domain": true }
+  ]
+}

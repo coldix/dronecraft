@@ -1,0 +1,6 @@
+# Allow all search engines to crawl the entire site.
+User-agent: *
+Allow: /
+
+# Provide the path to the sitemap.
+Sitemap: https://dronecraft.au/sitemap.xml
