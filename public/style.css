@@ -943,3 +943,7 @@ h2 {
     transform: none;
   }
 }
+
+/* OZE network footer credit, matching bellwest's small OZE mark. */
+.site-footer .footer-oze { display: inline-flex; align-items: center; gap: 6px; vertical-align: middle; white-space: nowrap; }
+.site-footer .footer-oze img { display: inline-block; width: 54px; height: 18px; object-fit: contain; }
