@@ -1,0 +1,35 @@
+name: Astro build check
+on:
+  pull_request:
+    branches: [main]
+  push:
+    branches: [astro-migration]
+permissions:
+  contents: read
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Install dependencies
+        run: npm install --no-audit --no-fund
+      - name: Build static site
+        run: npm run build
+      - name: Verify published files
+        run: |
+          test -s dist/index.html
+          test -s dist/robots.txt
+          test -s dist/sitemap.xml
+          test -s dist/llms.txt
+          test -s dist/images/betka-clouds.jpg
+          test -s dist/script.js
+          if grep -qi 'ready for Hostinger' dist/index.html; then exit 1; fi
+          if grep -qi 'https://www.youtube.com/embed/' dist/index.html; then exit 1; fi
+      - uses: actions/upload-artifact@v4
+        with:
+          name: dronecraft-dist
+          path: dist/
+          retention-days: 7
