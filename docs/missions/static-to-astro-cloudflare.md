@@ -18,7 +18,7 @@ Plain static HTML/CSS/JS. No build step, no forms, no PHP, no WordPress. The rep
 - `index.html`: the whole site. Sections: nav (Work, Video, 360, Connect, theme toggle) · hero · intro · `#work` gallery · `#video` · `#panorama` · adnet ad slot · `#connect` · footer.
 - `style.css`: dark/light themes, frosted glass, "ice frame" borders, drone animation.
 - `script.js`: scroll reveal, theme toggle saved in `localStorage` (dark default), footer year/version/timestamp from meta tags.
-- `css/adnet.css` + `https://ads.oze.net.au/t.js`: oze adnet house-ad slot. Source of truth is `coldix/adnet` (`embed/adnet.css`).
+- `css/adnet.css` + `https://ads.oze.au/t.js`: oze adnet house-ad slot. Source of truth is `coldix/adnet` (`embed/adnet.css`).
 - `images/`: `betka-clouds` (hero, OG image), `mavic-4-pro-cutout.png` (transparent drone, with red/green nav lights and a "Hasselblad" label overlaid in CSS), `Colin-Pebbly1-2k` (portrait), `Sunrise Coota` (filename has a space), `dronecraft-logo`, favicons and app icons. Most have `.webp` + `.jpg/.png`.
 - `manifest.json`, `robots.txt`, `sitemap.xml`. No `llms.txt` yet.
 - `.htaccess`: Hostinger cache, security headers, HTTPS and www→apex redirect. Note: `https://www.dronecraft.au` currently returns 200, not a 301. Fix that on Cloudflare.
