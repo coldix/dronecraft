@@ -21,3 +21,24 @@
 4. In Google Search Console inspect URL https://dronecraft.au/ and submit sitemap if it is not already submitted. Check indexing and rich result/schema validity, noting eligibility doesn't mean search ranking.
 5. Check response headers, canonical, Open Graph previews and generated JSON-LD using validator tools.
 6. Preserve email-related DNS and do not merge draft PR until Colin approves the preview.
+
+## End-of-job summary report (required)
+
+Every AI (Codex, Claude, Antigravity, ChatGPT, Grok Bot) must end its PR body and its final reply with this block, exactly as laid out, so the jobs.oze.au dashboard can read it. One field per line, keep the labels as written, fill every line. Use "not shown" when the tool does not show a value. Dates are dd/mm/yyyy, times are AEDT (Melbourne).
+
+```
+## Job report
+- Repo: coldix/<repo>
+- Website: <live or preview URL, or none>
+- AI: <agent, e.g. Antigravity>
+- Model: <model and effort as shown in the tool, e.g. Gemini 3 Pro High>
+- Started: dd/mm/yyyy HH:MM AEDT
+- Ended: dd/mm/yyyy HH:MM AEDT
+- Time taken: <minutes>
+- Usage: <tokens, credits or requests if the tool shows them, else not shown>
+- PR: <url>
+- Status: <merged/open/blocked>
+- Summary: <1 to 3 lines>
+```
+
+Full rule: https://github.com/coldix/jobs/blob/main/AGENTS-REPORTING.md
