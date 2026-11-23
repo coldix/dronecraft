@@ -956,3 +956,115 @@ h2 {
 .services-section>p{color:var(--muted)}
 .services-section>p a{text-underline-offset:3px;color:var(--cyan)}
 @media(max-width:720px){.services-grid{grid-template-columns:1fr}}
+
+/* Films page */
+.topnav a[aria-current="page"] {
+  background: linear-gradient(135deg, var(--glass-strong), rgba(125, 232, 255, 0.16));
+  color: var(--ink);
+}
+
+.films-hero.hero {
+  min-height: auto;
+  padding-bottom: clamp(3rem, 8vh, 5rem);
+}
+
+.films-hero .hero-content {
+  width: min(100%, 54rem);
+}
+
+.films-hero h1 {
+  font-size: clamp(2.8rem, 8vw, 6.2rem);
+}
+
+.video-films-link,
+.films-catalogue .section-heading p,
+.formats-note {
+  color: var(--muted);
+  font-size: 1.05rem;
+  margin: 1.2rem 0 0;
+  max-width: 46rem;
+}
+
+.video-films-link a,
+.films-catalogue a,
+.formats-note a,
+.film-copy a {
+  color: var(--cyan);
+  text-underline-offset: 3px;
+}
+
+.films-grid {
+  display: grid;
+  gap: clamp(1.4rem, 3vw, 2.4rem);
+  margin-top: 1.6rem;
+}
+
+.film-card {
+  display: grid;
+  gap: clamp(1rem, 2vw, 1.6rem);
+  grid-template-columns: minmax(0, 1.4fr) minmax(16rem, 0.9fr);
+  align-items: center;
+}
+
+.film-copy h3 {
+  color: var(--ink);
+  font-size: clamp(1.3rem, 3vw, 2rem);
+  font-weight: 800;
+  letter-spacing: 0;
+  line-height: 1.15;
+  margin: 0 0 0.45rem;
+}
+
+.film-date {
+  color: var(--muted);
+  font-weight: 700;
+  margin: 0 0 0.85rem;
+}
+
+.price-guide {
+  color: var(--gold);
+  font-size: 0.95rem;
+  font-weight: 800;
+  letter-spacing: 0.04rem;
+  margin: 0.85rem 0 0;
+  text-transform: uppercase;
+}
+
+.formats-grid {
+  display: grid;
+  gap: clamp(1rem, 2vw, 2rem);
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  margin: 1.4rem 0 1.2rem;
+}
+
+.format-card {
+  background: var(--glass);
+  border: 1px solid var(--stroke);
+  border-radius: var(--radius);
+  padding: clamp(1rem, 2vw, 1.6rem);
+}
+
+.format-card h3 {
+  color: var(--ink);
+  font-size: 1.2rem;
+  margin: 0 0 0.4rem;
+}
+
+.format-price {
+  color: var(--cyan);
+  font-size: 1.8rem;
+  font-weight: 800;
+  margin: 0 0 0.7rem;
+}
+
+.format-card p:last-child {
+  color: var(--muted);
+  margin: 0;
+}
+
+@media (max-width: 720px) {
+  .film-card,
+  .formats-grid {
+    grid-template-columns: 1fr;
+  }
+}

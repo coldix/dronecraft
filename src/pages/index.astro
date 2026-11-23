@@ -1,134 +1,54 @@
-<!DOCTYPE html>
-<html lang="en-AU">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="author" content="Colin Dixon BSc, DipEd, Cert IV TAE" />
-    <meta name="version" content="26.10.013" />
-    <meta name="timestamp" content="11/10/2026 06:32 PM AEDT (Mallacoota)" />
-    <link rel="canonical" href="https://dronecraft.au/" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+---
+import Layout from "../layouts/Layout.astro";
+import { site } from "../data/site.js";
 
-    <title>Drone Craft | Mallacoota Aerial Art by Colin Dixon</title>
-    <meta
-      name="description"
-      content="Explore Mallacoota aerial photography, cinematic drone video and interactive 360 panoramas by Colin Dixon. Aerial art and digital media from Victoria's far east coast."
-    />
-    <meta
-      name="keywords"
-      content="Drone Craft, Colin Dixon, Mallacoota, DJI Mavic 4 Pro, drone photography, aerial art, 360 panoramas, Victoria"
-    />
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "@id": `${site.url}/#website`,
+      url: `${site.url}/`,
+      name: "Drone Craft",
+      description:
+        "Mallacoota aerial photography, drone video and interactive 360 panoramas by Colin Dixon",
+      inLanguage: "en-AU",
+      publisher: { "@id": `${site.url}/#person` },
+    },
+    {
+      "@type": "Person",
+      "@id": `${site.url}/#person`,
+      name: "Colin Dixon",
+      url: `${site.url}/`,
+      email: `mailto:${site.email}`,
+      telephone: "+61419415000",
+      jobTitle: "Aerial artist and digital strategist",
+      homeLocation: { "@type": "Place", name: "Mallacoota, Victoria, Australia" },
+    },
+    {
+      "@type": "Service",
+      name: "Drone photography, aerial video and 360 panoramas",
+      description:
+        "Aerial imagery, coastal drone video, interactive 360 panoramas and digital storytelling",
+      provider: { "@id": `${site.url}/#person` },
+      areaServed: { "@type": "Place", name: "Mallacoota, Victoria, Australia" },
+      url: `${site.url}/#services`,
+    },
+  ],
+};
+---
 
-    <link rel="manifest" href="/manifest.json" />
-    <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png" />
-    <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png" />
-    <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png" />
-    <link rel="icon" href="/images/favicon.ico" type="image/x-icon" />
-
-    <meta property="og:title" content="Drone Craft | Mallacoota Aerial Art" />
-    <meta
-      property="og:description"
-      content="Cinematic drone photography, video, 360 panoramas, and digital storytelling from Mallacoota, Victoria."
-    />
-    <meta property="og:image" content="https://dronecraft.au/images/betka-clouds.jpg" />
-    <meta property="og:url" content="https://dronecraft.au/" />
-    <meta property="og:type" content="website" />
-
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:url" content="https://dronecraft.au/" />
-    <meta name="twitter:title" content="Drone Craft | Mallacoota Aerial Art" />
-    <meta
-      name="twitter:description"
-      content="Cinematic drone photography, video, 360 panoramas, and digital storytelling from Mallacoota."
-    />
-    <meta name="twitter:image" content="https://dronecraft.au/images/betka-clouds.jpg" />
-
-    <script is:inline type="application/ld+json">
-      {
-        "@context": "https://schema.org",
-        "@graph": [
-          {
-            "@type": "WebSite",
-            "@id": "https://dronecraft.au/#website",
-            "url": "https://dronecraft.au/",
-            "name": "Drone Craft",
-            "description": "Mallacoota aerial photography, drone video and interactive 360 panoramas by Colin Dixon",
-            "inLanguage": "en-AU",
-            "publisher": { "@id": "https://dronecraft.au/#person" }
-          },
-          {
-            "@type": "Person",
-            "@id": "https://dronecraft.au/#person",
-            "name": "Colin Dixon",
-            "url": "https://dronecraft.au/",
-            "email": "mailto:col@dixon.au",
-            "telephone": "+61419415000",
-            "jobTitle": "Aerial artist and digital strategist",
-            "homeLocation": { "@type": "Place", "name": "Mallacoota, Victoria, Australia" }
-          },
-          {
-            "@type": "Service",
-            "name": "Drone photography, aerial video and 360 panoramas",
-            "description": "Aerial imagery, coastal drone video, interactive 360 panoramas and digital storytelling",
-            "provider": { "@id": "https://dronecraft.au/#person" },
-            "areaServed": { "@type": "Place", "name": "Mallacoota, Victoria, Australia" },
-            "url": "https://dronecraft.au/#services"
-          }
-        ]
-      }
-    </script>
-
-    <script is:inline async src="https://www.googletagmanager.com/gtag/js?id=G-HZEBQGV488"></script>
-    <script is:inline>
-      window.dataLayer = window.dataLayer || [];
-      function gtag() {
-        dataLayer.push(arguments);
-      }
-      gtag("js", new Date());
-      gtag("config", "G-HZEBQGV488");
-    </script>
-
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link rel="preconnect" href="https://cdnjs.cloudflare.com" />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
-    />
-    <link rel="stylesheet" href="/style.css" />
-    <link rel="stylesheet" href="/css/adnet.css" />
-  <script is:inline>try{if(localStorage.getItem("theme")==="light")document.documentElement.classList.add("stored-light")}catch(e){}</script>
-    <style is:global>
-      html.stored-light body.dark {visibility:hidden}
-      @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important;scroll-behavior:auto!important}}
-    </style>
-  </head>
-
-  <body class="dark">
-    <div class="site-shell">
-      <header class="topbar" aria-label="Site header">
-        <a class="brand" href="#top" aria-label="Drone Craft home">
-          <picture>
-            <source srcset="/images/dronecraft-logo.webp" type="image/webp" />
-            <img src="/images/dronecraft-logo.png" alt="Drone Craft by Colin Dixon" />
-          </picture>
-        </a>
-        <nav class="topnav" aria-label="Primary navigation">
-          <a href="#work">Work</a>
-          <a href="#video">Video</a>
-          <a href="#panorama">360</a>
-          <a href="#connect">Connect</a>
-          <button class="theme-toggle" type="button" aria-label="Toggle dark and light theme" data-theme-toggle>
-            <i class="fa-solid fa-moon" aria-hidden="true"></i>
-            <span>Light Theme</span>
-          </button>
-        </nav>
-      </header>
-
-      <main id="top">
+<Layout
+  title="Drone Craft | Mallacoota Aerial Art by Colin Dixon"
+  description="Explore Mallacoota aerial photography, cinematic drone video and interactive 360 panoramas by Colin Dixon. Aerial art and digital media from Victoria's far east coast."
+  canonical={`${site.url}/`}
+  ogTitle="Drone Craft | Mallacoota Aerial Art"
+  ogDescription="Cinematic drone photography, video, 360 panoramas, and digital storytelling from Mallacoota, Victoria."
+  ogUrl={`${site.url}/`}
+  jsonLd={jsonLd}
+  currentPath="/"
+  keywords="Drone Craft, Colin Dixon, Mallacoota, DJI Mavic 4 Pro, drone photography, aerial art, 360 panoramas, Victoria"
+>
         <section class="hero" aria-labelledby="hero-title">
           <div class="hero-media" aria-hidden="true">
             <picture>
@@ -165,7 +85,7 @@
               </a>
               <a
                 class="button button-secondary"
-                href="https://calendly.com/colindixon"
+                href={site.calendly}
                 target="_blank"
                 rel="noopener"
               >
@@ -222,7 +142,7 @@
             <article><h3>Drone video</h3><p>Cinematic footage of Mallacoota and its surroundings, edited into visual stories for the screen.</p></article>
             <article><h3>Interactive 360 panoramas</h3><p>Immersive scenes that let viewers explore a location and look around for themselves.</p></article>
           </div>
-          <p>Based in Mallacoota, Victoria. To discuss a project, <a href="mailto:col@dixon.au">email Colin</a> or <a href="https://calendly.com/colindixon" target="_blank" rel="noopener">schedule a chat</a>.</p>
+          <p>Based in Mallacoota, Victoria. To discuss a project, <a href={`mailto:${site.email}`}>email Colin</a> or <a href={site.calendly} target="_blank" rel="noopener">schedule a chat</a>.</p>
         </section>
 
         <section class="work-grid section-band" id="work" aria-labelledby="work-title">
@@ -267,6 +187,10 @@
               loading="lazy"
             ></iframe>
           </div>
+          <p class="video-films-link reveal">
+            Take these films home on a USB stick or DVD.
+            <a href="/films">Browse the films and formats</a>.
+          </p>
         </section>
 
         <section class="panorama-section section-band" id="panorama" aria-labelledby="panorama-title">
@@ -306,7 +230,7 @@
               <i class="fa-brands fa-facebook-f" aria-hidden="true"></i>
               <span>Facebook Group</span>
             </a>
-            <a href="https://www.youtube.com/@mallacoota2020" target="_blank" rel="noopener">
+            <a href={site.youtube} target="_blank" rel="noopener">
               <i class="fa-brands fa-youtube" aria-hidden="true"></i>
               <span>YouTube</span>
             </a>
@@ -330,28 +254,10 @@
               <i class="fa-brands fa-discord" aria-hidden="true"></i>
               <span>Discord</span>
             </a>
-            <a href="mailto:col@dixon.au">
+            <a href={`mailto:${site.email}`}>
               <i class="fa-solid fa-envelope" aria-hidden="true"></i>
               <span>Email Colin</span>
             </a>
           </div>
         </section>
-      </main>
-
-      <footer class="site-footer">
-        <p class="copyright">
-          <span id="copyright-year"></span> Colin Dixon · All rights reserved ·
-          <span id="html-version"></span> · <span id="html-timestamp"></span> · Website by
-          <a class="footer-oze" href="https://oze.au" target="_blank" rel="noopener noreferrer" aria-label="OZE website, opens in a new tab"><img src="/images/branding/oze-logo.webp" alt="OZE" width="54" height="18" loading="lazy" />oze.au</a>
-        </p>
-        <div class="footer-links">
-          <a href="tel:0419415000">0419 415 000</a>
-          <a href="https://www.linkedin.com/in/colindixon/" target="_blank" rel="noopener">LinkedIn</a>
-        </div>
-      </footer>
-    </div>
-
-    <script is:inline src="/script.js" defer></script>
-    <script async src="https://ads.oze.au/t.js"></script>
-  </body>
-</html>
+</Layout>
