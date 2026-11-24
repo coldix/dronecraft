@@ -21,13 +21,18 @@ jobs:
       - name: Verify published files
         run: |
           test -s dist/index.html
+          test -s dist/films/index.html
           test -s dist/robots.txt
           test -s dist/sitemap.xml
           test -s dist/llms.txt
           test -s dist/images/betka-clouds.jpg
           test -s dist/script.js
+          grep -q 'https://dronecraft.au/films' dist/sitemap.xml
+          grep -qi 'guide only' dist/films/index.html
+          grep -q 'Inlet Mouth Opening' dist/films/index.html
           if grep -qi 'ready for Hostinger' dist/index.html; then exit 1; fi
           if grep -qi 'https://www.youtube.com/embed/' dist/index.html; then exit 1; fi
+          if grep -qiE '\bgst\b' dist/films/index.html dist/index.html; then exit 1; fi
       - uses: actions/upload-artifact@v4
         with:
           name: dronecraft-dist

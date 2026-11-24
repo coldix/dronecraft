@@ -1,0 +1,159 @@
+---
+import Layout from "../layouts/Layout.astro";
+import { site } from "../data/site.js";
+import { films, formats } from "../data/films.js";
+
+const pageUrl = `${site.url}/films`;
+const orderHref = `mailto:${site.email}?subject=${encodeURIComponent("Drone Craft film order")}`;
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebPage",
+      "@id": `${pageUrl}#webpage`,
+      url: pageUrl,
+      name: "Films | Drone Craft",
+      description:
+        "Buy Colin Dixon's drone films on a USB stick or DVD, starting with five Mallacoota titles. Prices are a guide only.",
+      isPartOf: { "@id": `${site.url}/#website` },
+      inLanguage: "en-AU",
+    },
+    {
+      "@type": "ItemList",
+      name: "Drone Craft films",
+      itemListElement: films.map((film, index) => ({
+        "@type": "ListItem",
+        position: index + 1,
+        item: {
+          "@type": "VideoObject",
+          name: film.title,
+          description: film.youtubeTitle,
+          uploadDate: film.date,
+          thumbnailUrl: `https://i.ytimg.com/vi/${film.youtubeId}/hqdefault.jpg`,
+          embedUrl: `https://www.youtube-nocookie.com/embed/${film.youtubeId}`,
+          url: `https://www.youtube.com/watch?v=${film.youtubeId}`,
+        },
+      })),
+    },
+  ],
+};
+---
+
+<Layout
+  title="Films | Drone Craft by Colin Dixon"
+  description="Take Colin Dixon's drone films home on a USB stick or DVD. 1080p MP4s that play on most TVs, plus a standard DVD. Prices are a guide only."
+  canonical={pageUrl}
+  ogTitle="Films | Drone Craft"
+  ogDescription="Colin Dixon's drone films on USB and DVD, starting with five Mallacoota titles. Prices are a guide only."
+  ogUrl={pageUrl}
+  jsonLd={jsonLd}
+  currentPath="/films"
+>
+  <section class="films-hero hero" aria-labelledby="films-title">
+    <div class="hero-media" aria-hidden="true">
+      <picture>
+        <source srcset="/images/betka-clouds.webp" type="image/webp" />
+        <img src="/images/betka-clouds.jpg" alt="" fetchpriority="high" />
+      </picture>
+    </div>
+    <div class="aurora"></div>
+    <div class="hero-content is-visible">
+      <p class="eyebrow">Drone Craft films</p>
+      <h1 id="films-title">Take these films home</h1>
+      <p class="hero-copy">
+        Colin Dixon, a CASA drone pilot based in Mallacoota, makes cinematic aerial films
+        from Mallacoota and further afield. This page will grow as more titles are ready.
+        Watch a preview, then enquire to order a USB stick or DVD.
+      </p>
+      <div class="hero-actions">
+        <a class="button button-primary" href="#formats">
+          <i class="fa-solid fa-film" aria-hidden="true"></i>
+          Formats and prices
+        </a>
+        <a class="button button-secondary" href={orderHref}>
+          <i class="fa-solid fa-envelope" aria-hidden="true"></i>
+          Enquire to order
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-band films-catalogue" id="catalogue" aria-labelledby="catalogue-title">
+    <div class="section-heading reveal">
+      <p class="eyebrow">The films</p>
+      <h2 id="catalogue-title">Starting with Mallacoota</h2>
+      <p>
+        These five titles are on YouTube at
+        <a href={site.youtube} target="_blank" rel="noopener">@mallacoota2020</a>.
+        More films will be added here as they are finished.
+      </p>
+    </div>
+
+    <div class="films-grid">
+      {
+        films.map((film) => (
+          <article class="film-card reveal" id={film.slug}>
+            <div class="media-frame ice-frame">
+              <iframe
+                data-video-id={film.youtubeId}
+                title={film.youtubeTitle}
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                referrerpolicy="strict-origin-when-cross-origin"
+                allowfullscreen
+                loading="lazy"
+              />
+            </div>
+            <div class="film-copy">
+              <h3>{film.title}</h3>
+              <p class="film-date">{film.dateLabel}</p>
+              <a
+                href={`https://www.youtube.com/watch?v=${film.youtubeId}`}
+                target="_blank"
+                rel="noopener"
+              >
+                Watch on YouTube
+              </a>
+            </div>
+          </article>
+        ))
+      }
+    </div>
+  </section>
+
+  <section class="section-band formats-section" id="formats" aria-labelledby="formats-title">
+    <div class="section-heading reveal">
+      <p class="eyebrow">Take them home</p>
+      <h2 id="formats-title">USB stick or DVD</h2>
+      <p class="price-guide">Prices are a guide only.</p>
+    </div>
+    <div class="formats-grid">
+      {
+        formats.map((item) => (
+          <article class="format-card reveal" id={`format-${item.id}`}>
+            <h3>{item.name}</h3>
+            {item.priceLabel ? <p class="format-price">{item.priceLabel}</p> : <p class="format-price">Guide price on request</p>}
+            <p>{item.detail}</p>
+          </article>
+        ))
+      }
+    </div>
+    <p class="formats-note reveal">
+      There is no checkout on this page yet. To order, or to ask about a title,
+      <a href={orderHref}>email Colin</a>
+      or call <a href={site.phoneHref}>{site.phoneDisplay}</a>.
+      Fine art prints are at
+      <a href={site.art} target="_blank" rel="noopener">art.oze.au</a>.
+    </p>
+    <div class="hero-actions reveal">
+      <a class="button button-primary" href={orderHref}>
+        <i class="fa-solid fa-envelope" aria-hidden="true"></i>
+        Enquire to order
+      </a>
+      <a class="button button-secondary" href={site.art} target="_blank" rel="noopener">
+        <i class="fa-solid fa-image" aria-hidden="true"></i>
+        Art prints
+      </a>
+    </div>
+  </section>
+</Layout>

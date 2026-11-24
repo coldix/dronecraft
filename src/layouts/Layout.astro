@@ -1,0 +1,156 @@
+---
+import { site } from "../data/site.js";
+
+const {
+  title,
+  description,
+  canonical,
+  ogTitle = title,
+  ogDescription = description,
+  ogUrl = canonical,
+  ogImage = `${site.url}/images/betka-clouds.jpg`,
+  jsonLd,
+  currentPath = "/",
+  keywords,
+} = Astro.props;
+
+const navItems = [
+  { href: "/#work", label: "Work" },
+  { href: "/#video", label: "Video" },
+  { href: "/films", label: "Films", path: "/films" },
+  { href: "/#panorama", label: "360" },
+  { href: "/#connect", label: "Connect" },
+];
+
+const brandHref = currentPath === "/" ? "#top" : "/";
+const jsonLdString = jsonLd ? JSON.stringify(jsonLd) : "";
+---
+
+<!DOCTYPE html>
+<html lang="en-AU">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="author" content={site.author} />
+    <meta name="version" content={site.version} />
+    <meta name="timestamp" content={site.timestamp} />
+    <link rel="canonical" href={canonical} />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    {keywords && <meta name="keywords" content={keywords} />}
+
+    <link rel="manifest" href="/manifest.json" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png" />
+    <link rel="icon" href="/images/favicon.ico" type="image/x-icon" />
+
+    <meta property="og:title" content={ogTitle} />
+    <meta property="og:description" content={ogDescription} />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:url" content={ogUrl} />
+    <meta property="og:type" content="website" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:url" content={ogUrl} />
+    <meta name="twitter:title" content={ogTitle} />
+    <meta name="twitter:description" content={ogDescription} />
+    <meta name="twitter:image" content={ogImage} />
+
+    {jsonLdString && (
+      <script is:inline type="application/ld+json" set:html={jsonLdString} />
+    )}
+
+    <script is:inline async src="https://www.googletagmanager.com/gtag/js?id=G-HZEBQGV488"></script>
+    <script is:inline>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+      gtag("config", "G-HZEBQGV488");
+    </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    />
+    <link rel="stylesheet" href="/style.css" />
+    <link rel="stylesheet" href="/css/adnet.css" />
+    <script is:inline>
+      try {
+        if (localStorage.getItem("theme") === "light") document.documentElement.classList.add("stored-light");
+      } catch (e) {}
+    </script>
+    <style is:global>
+      html.stored-light body.dark {
+        visibility: hidden;
+      }
+      @media (prefers-reduced-motion: reduce) {
+        *,
+        *::before,
+        *::after {
+          animation-duration: 0.01ms !important;
+          transition-duration: 0.01ms !important;
+          scroll-behavior: auto !important;
+        }
+      }
+    </style>
+  </head>
+
+  <body class="dark">
+    <div class="site-shell">
+      <header class="topbar" aria-label="Site header">
+        <a class="brand" href={brandHref} aria-label="Drone Craft home">
+          <picture>
+            <source srcset="/images/dronecraft-logo.webp" type="image/webp" />
+            <img src="/images/dronecraft-logo.png" alt="Drone Craft by Colin Dixon" />
+          </picture>
+        </a>
+        <nav class="topnav" aria-label="Primary navigation">
+          {
+            navItems.map((item) => (
+              <a
+                href={item.href}
+                aria-current={item.path && currentPath === item.path ? "page" : undefined}
+              >
+                {item.label}
+              </a>
+            ))
+          }
+          <button class="theme-toggle" type="button" aria-label="Toggle dark and light theme" data-theme-toggle>
+            <i class="fa-solid fa-moon" aria-hidden="true"></i>
+            <span>Light Theme</span>
+          </button>
+        </nav>
+      </header>
+
+      <main id="top">
+        <slot />
+      </main>
+
+      <footer class="site-footer">
+        <p class="copyright">
+          <span id="copyright-year"></span> Colin Dixon · All rights reserved ·
+          <span id="html-version"></span> · <span id="html-timestamp"></span> · Website by
+          <a class="footer-oze" href="https://oze.au" target="_blank" rel="noopener noreferrer" aria-label="OZE website, opens in a new tab"><img src="/images/branding/oze-logo.webp" alt="OZE" width="54" height="18" loading="lazy" />oze.au</a>
+        </p>
+        <div class="footer-links">
+          <a href={site.phoneHref}>{site.phoneDisplay}</a>
+          <a href="https://www.linkedin.com/in/colindixon/" target="_blank" rel="noopener">LinkedIn</a>
+        </div>
+      </footer>
+    </div>
+
+    <script is:inline src="/script.js" defer></script>
+    <script async src="https://ads.oze.au/t.js"></script>
+  </body>
+</html>
